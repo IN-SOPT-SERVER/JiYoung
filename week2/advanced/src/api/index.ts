@@ -11,5 +11,6 @@ router.get("/", (req: Request, res: Response) => {
 
 router.use("/user", require("./user"));
 router.use("/member", require("./member"));
+router.use("/blog", require("./blog"));
 
 module.exports = router; // 모듈로 반환
