@@ -3,7 +3,7 @@ import { ContentInfo } from './contentInfo';
 import { MediaInfo } from './mediaInfo';
 
 
-interface Media{
+export interface Media{
     title:String,
     mediaInfo: MediaInfo
     contentInfo: ContentInfo,
