@@ -1,12 +1,13 @@
 import express, {NextFunction, Request, Response} from "express";
+import indexRouter from './router/index';
 
 const app=express();
 const PORT=3000;
 
-
 app.get("/", (req:Request, res:Response, next:NextFunction)=>{
     res.send("넷플릭스의 index입니다.");
 });
+app.use("/api", indexRouter);
 
 app.listen(PORT, () => {
     console.log(`
