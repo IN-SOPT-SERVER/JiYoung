@@ -4,6 +4,7 @@ import indexRouter from './router/index';
 const app=express();
 const PORT=3000;
 
+app.use(express.json());
 app.get("/", (req:Request, res:Response, next:NextFunction)=>{
     res.send("넷플릭스의 index입니다.");
 });

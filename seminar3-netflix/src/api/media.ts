@@ -8,4 +8,16 @@ const getMedia = (req:Request, res:Response) => {
     });
 };
 
-export default getMedia;
+const addMedia = (req:Request, res:Response) => {
+    const body=req.body;
+   
+    mediaData.push(body);
+
+    return res.status(200).json({
+        status:200,
+        message:"넷플릭스 미디어 추가 성공",
+        data:mediaData
+    });
+};
+
+export {getMedia, addMedia};

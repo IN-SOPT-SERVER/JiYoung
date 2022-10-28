@@ -1,6 +1,6 @@
 import {Media} from '../interface/media'
 
-const mediaData: Media={
+const mediaData: Media[]=[{
     title:"마수리남",
     mediaInfo: {
         thumbNail:"a",
@@ -20,8 +20,6 @@ const mediaData: Media={
         currentTime: 45,
         isLiked: false
     }
-
-
-}
+}];
 
 export default mediaData;
