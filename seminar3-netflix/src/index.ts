@@ -8,7 +8,7 @@ app.use(express.json());
 app.get("/", (req:Request, res:Response, next:NextFunction)=>{
     res.send("넷플릭스의 index입니다.");
 });
-app.use("/api", indexRouter);
+app.use("/media", indexRouter);
 
 app.listen(PORT, () => {
     console.log(`
