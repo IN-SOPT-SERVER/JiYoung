@@ -48,7 +48,7 @@ const updateUser = async(req:Request, res:Response) => {
   if(!name)
     return res.status(400).json({status:404,message:"유저 업데이트 실패"});
   
-  const data=await userService.updateUser(+userId);
+  const data=await userService.updateUser(+userId, name);
   return res.status(200).json({status:200, message:"유저 업데이트 성공",data});
 }
 
