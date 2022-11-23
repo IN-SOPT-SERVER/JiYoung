@@ -13,31 +13,16 @@ const getUserById = async (req: Request, res: Response) => {
   const data = await userService.getUserById(+userId);
 
   if (!data) {
-    return res.status(404).json({ status: 404, message: "NOT_FOUND" });
+    return res.status(sc.BAD_REQUEST).json({ status: sc.BAD_REQUEST, message: rm.BAD_REQUEST });
   }
-  return res.status(200).json({ status: 200, message: "유저 조회 성공", data });
+  return res.status(sc.OK).json({ status: sc.OK, message: rm.READ_USER_SUCCESS, data });
 };
-
-//* 유저 생성
-// const createUser = async(req:Request, res:Response) => {
-//     const {userName, email, age}=req.body;
-
-//     if(!userName || !email || !age)
-//       return res.status(400).json({status:404, message:"유저 생성 실패"});
-
-//     const data=await userService.createUser(userName, email, age);
-
-//     if(!data)
-//       return res.status(400).json({status:404, message:"유저 생성 실패"});
-
-//     return res.status(200).json({status:200, message:"유저 생성 성공", data});
-// }
 
 //* 전체 유저 조회
 const getAllUser = async(req:Request, res:Response) => {
   const data=await userService.getAllUser();
 
-  return res.status(200).json({status:200,message:"유저 전체 조회 성공",data});
+  return res.status(sc.OK).json({status:sc.OK,message:rm.READ_ALL_USERS_SUCCESS,data});
 }
 
 //* 유저 수정
@@ -46,10 +31,10 @@ const updateUser = async(req:Request, res:Response) => {
   const {userId}=req.params;
 
   if(!name)
-    return res.status(400).json({status:404,message:"유저 업데이트 실패"});
+    return res.status(sc.BAD_REQUEST).json({status:sc.BAD_REQUEST,message:rm.BAD_REQUEST});
   
   const data=await userService.updateUser(+userId, name);
-  return res.status(200).json({status:200, message:"유저 업데이트 성공",data});
+  return res.status(sc.OK).json({status:sc.OK, message:rm.UPDATE_USER_SUCCESS,data});
 }
 
 //* 유저 삭제
@@ -58,7 +43,7 @@ const deleteUser = async(req:Request, res:Response) => {
 
   await userService.deleteUser(+userId);
 
-  return res.status(200).json({status:200,message:"유저 삭제 성공"});
+  return res.status(sc.OK).json({status:200,message:rm.DELETE_USER_SUCCESS});
 }
 
 const createUser = async (req: Request, res: Response) => {
