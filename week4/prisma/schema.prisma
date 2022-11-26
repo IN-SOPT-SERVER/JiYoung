@@ -19,4 +19,6 @@ model User {
   age      Int?
   email    String @db.VarChar(400)
   password String @db.VarChar(400)
+    createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

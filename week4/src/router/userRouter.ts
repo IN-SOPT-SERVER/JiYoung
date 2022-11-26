@@ -22,6 +22,9 @@ router.post(
     userController.createUser
   );
 
+  //* 이름으로 유저 찾기  /search/?keyword={}
+router.get("/search", userController.searchUserByName);
+
 router.post(
     "/signin",
     [
