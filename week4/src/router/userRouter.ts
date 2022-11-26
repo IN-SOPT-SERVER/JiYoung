@@ -6,17 +6,14 @@ const router: Router = Router();
 
 router.get("/:userId", auth, userController.getUserById);
 
-//* 유저 생성
-router.post("/",userController.createUser);
-
 //* 전체 유저 조회
-router.get("/",userController.getAllUser);
+router.get("/",auth, userController.getAllUser);
 
 //* 유저 수정
-router.patch("/:userId",userController.updateUser);
+router.patch("/:userId",auth, userController.updateUser);
 
 //* 유저 삭제
-router.delete("/:userId",userController.deleteUser);
+router.delete("/:userId",auth, userController.deleteUser);
 
 //* 유저 생성 - POST api/user
 router.post(
